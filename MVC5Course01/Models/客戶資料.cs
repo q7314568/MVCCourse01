@@ -36,7 +36,7 @@ namespace MVC5Course01.Models
         [DataType(DataType.Text)]
         public string 傳真 { get; set; }
         public string 地址 { get; set; }
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [EmailAddress(ErrorMessage = "不是合法的Email格式")]
         public string Email { get; set; }
         public bool IsValid { get; set; }
     
