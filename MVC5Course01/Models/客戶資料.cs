@@ -11,6 +11,7 @@ namespace MVC5Course01.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class 客戶資料
     {
@@ -21,12 +22,23 @@ namespace MVC5Course01.Models
         }
     
         public int Id { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(50)]
         public string 客戶名稱 { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(8)]
         public string 統一編號 { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
         public string 電話 { get; set; }
+        [DataType(DataType.Text)]
         public string 傳真 { get; set; }
         public string 地址 { get; set; }
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
+        public bool IsValid { get; set; }
     
         public virtual ICollection<客戶銀行資訊> 客戶銀行資訊 { get; set; }
         public virtual ICollection<客戶聯絡人> 客戶聯絡人 { get; set; }
