@@ -50,6 +50,7 @@ namespace MVC5Course01.Controllers
         {
             if (ModelState.IsValid)
             {
+                客戶資料.IsValid = true;
                 db.客戶資料.Add(客戶資料);
                 db.SaveChanges();
                 return RedirectToAction("Index");
