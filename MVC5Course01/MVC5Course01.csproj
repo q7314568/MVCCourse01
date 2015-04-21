@@ -138,6 +138,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Course01.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerView1.cs">
+      <DependentUpon>Course01.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>Course01.tt</DependentUpon>
     </Compile>
