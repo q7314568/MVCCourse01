@@ -9,9 +9,11 @@
 
 namespace MVC5Course01.Models
 {
+    using MVC5Course01.Utils.Validation;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
     
     public partial class 客戶聯絡人
     {
@@ -25,7 +27,10 @@ namespace MVC5Course01.Models
         public string 姓名 { get; set; }
         [Required]
         [EmailAddress(ErrorMessage = "不是合法的Email格式")]
+        [Remote("doesEmailExist", "Contact", HttpMethod = "GET", AdditionalFields = "客戶Id"
+            , ErrorMessage = "此Email已經存在!")]
         public string Email { get; set; }
+        [CheckCellPhone]
         public string 手機 { get; set; }
         public string 電話 { get; set; }
         public bool IsValid { get; set; }

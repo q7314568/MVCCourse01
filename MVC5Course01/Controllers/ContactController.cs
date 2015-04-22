@@ -122,6 +122,26 @@ namespace MVC5Course01.Controllers
             return RedirectToAction("Index");
         }
 
+        
+        /// <summary>
+        /// 檢查此客戶的客戶聯絡人是否已有此Email
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <param name="客戶Id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public virtual JsonResult doesEmailExist(string Email, int 客戶Id)
+        {
+            var user = db.客戶聯絡人.Where(i => i.IsValid == true && i.Email == Email && i.客戶Id == 客戶Id).FirstOrDefault();
+            bool result = true;
+            if (user != null)
+            {
+                return Json("此Email已被使用", JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
