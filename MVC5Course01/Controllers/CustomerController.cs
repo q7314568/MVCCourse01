@@ -27,7 +27,7 @@ namespace MVC5Course01.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            客戶資料 客戶資料 = db.客戶資料.Find(id);
+            客戶資料 客戶資料 = db.客戶資料.Where(i => i.IsValid == true && i.Id == id).FirstOrDefault();
             if (客戶資料 == null)
             {
                 return HttpNotFound();

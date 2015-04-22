@@ -17,7 +17,7 @@ namespace MVC5Course01.Controllers
         // GET: Bank
         public ActionResult Index()
         {
-            var 客戶銀行資訊 = db.客戶銀行資訊.Include(客 => 客.客戶資料);
+            var 客戶銀行資訊 = db.客戶銀行資訊.Where(i=>i.IsValid==true).Include(客 => 客.客戶資料);
             return View(客戶銀行資訊.ToList());
         }
 
